@@ -44,3 +44,13 @@ print(ancho_alto)
 #Hay soporte completo de punto flotante; operadores con operando mezclados convertirán los enteros a punto flotante:
 a = 4 * 3.75 - 1
 print(a)
+
+##En el modo interactivo, la última expresión impresa se asigna a la variable _. Esto significa que cuando se está utilizando Python como calculadora, es más fácil seguir calculando, por ejemplo:
+
+tax = 12.5 / 100
+price = 100.50
+price_tax = price * tax
+print(price_tax)
+price2 = price + _
+print(price2)
+
