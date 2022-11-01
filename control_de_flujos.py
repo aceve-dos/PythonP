@@ -55,6 +55,106 @@ for i in range(5):
     print(i)
 
 
+#range
+
+print(list(range(5,10)))
+print(list(range(0,10,3)))
+print(list(range(-10, -100, -30)))
+
+#iteraciones de una secuencia
+a = ['Mary', 'had', 'a', 'pequeña', 'lamb']
+for i in range (len(a)):
+    print(i, a[i])
+
+#enumerate y range
+
+print(range(10))
+
+#sum
+print(sum(range(4)))
+
+#break continue y else: buscador de números primos.
+
+for n in range(2,10):
+    for x in range (2,n):
+        if n % x == 0:
+            print(n, 'squals', x, '*', n // x)
+            break
+    else:
+        print(n, 'es un número primo')
+
+#continue hace la continuación del ciclo.
+
+for num in range(2,10):
+    if num % 2 == 0:
+        print("Buscando un even número", num)
+        continue
+    print("Buscando un odd número", num)
+
+#pass no hace nada, puede ser usada para una sentencia pero el programa no requiere ninguna acción
+
+#while True:
+#   pass
+
+#se usa para crear clases en su minima expresion.
+
+#class MiClaseLimpia:
+#    pass
+
+#Otro lugar donde se puede usar pass es como una marca de lugar para una función o un cuerpo condicional cuando estás trabajando en código nuevo, lo cual te permite pensar a un nivel de abstracción mayor. El pass se ignora silenciosamente:
+
+#def initlog(*args):
+#    pass
+
+#match compara expresiones y compara los patrones sucesivos en uno o más bloque de casos.
+"""
+def http_error(status):
+    match status:
+        case 400:
+            return "Mala recepcion"
+        case 404:
+            return "No funciona"
+        case 418:
+            return "Soy un té"
+        case _:
+            return "A veces es solo un error de internet"
+"""
+#Observa el último bloque: el «nombre de variable» _ funciona como un comodín y nunca fracasa la coincidencia. Si ninguno de los casos case coincide, ninguna de las ramas es ejecutada.
+
+#Es posible unir variables / ligarlas
+
+match point:
+    case(0,0):
+        print("Origin")
+    case(0,y):
+        print(f"Y={y}")
+    case(x , 0):
+        print(f"X={x}")
+    case (x,y):
+        print(f"X={x}, Y={y}")
+    case _:
+        raise ValueError("No es un punto")
+
+
+#Observa éste con cuidado! El primer patrón tiene dos literales y puede considerarse una extensión del patrón literal que se mostró anteriormente. Pero los siguientes dos patrones combinan un literal y una variable, y la variable liga uno de los elementos del sujeto (point). El cuarto patrón captura ambos elementos, lo que lo hace conceptualmente similar a la asignación que desempaqueta (x, y) = point.
+
+Si estás usando clases para estructurar tus datos, puedes usar el nombre de la clase seguida de una lista de argumentos similar a la de un constructor, pero con la capacidad de capturar atributos en variables:
+class Point:
+    x: int
+    y: int
+
+def where_is(point):
+    match point:
+        case Point(x=0, y=0):
+            print("Origin")
+        case Point(x=0, y=y):
+            print(f"Y={y}")
+        case Point(x=x, y=0):
+            print(f"X={x}")
+        case Point():
+            print("Somewhere else")    
+        case _:
+            raise ValueError("No es un punto")
 
 
 
